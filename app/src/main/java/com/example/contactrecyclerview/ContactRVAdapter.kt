@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.contactsapp.ContactDetailsActivity
 import com.squareup.picasso.Picasso
 
 class ContactRVAdapter ( var contactsList:List<Contact>,var context: Context):RecyclerView.Adapter <ContactsViewHolder>(){
@@ -23,16 +24,16 @@ class ContactRVAdapter ( var contactsList:List<Contact>,var context: Context):Re
         holder.tvphone.text=currentContact.phoneNumber
         holder.tvemail.text=currentContact.email
         holder.cvcontact.setOnClickListener {
-            var intent=Intent(context,ContactDetails::class.java)
-            intent.putExtra("name",Contact.name)
-            intent.putExtra("phone",Contact.phoneNumber)
-            intent.putExtra("email",Contact.email)
-            intent.putExtra("image",Contact.imageUrl)
+            var intent=Intent(context,ContactDetailsActivity::class.java)
+            intent.putExtra("name",contactsList.)
+            intent.putExtra("phone",contactsList.phoneNumber)
+            intent.putExtra("email",contactsList.email)
+            intent.putExtra("image",contactsList.imageUrl)
             context.startActivity(intent)
 
 
         }
-        Picasso.get().load(Contact.imageurl).resize(80,80).centerCrop().into(holder.ivcontact)
+        Picasso.get().load(contactsList.imageurl).resize(80,80).centerCrop().into(holder.ivcontact)
     }
 
     override fun getItemCount(): Int {

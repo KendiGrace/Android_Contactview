@@ -14,7 +14,7 @@ class ContactDetailsActivity : AppCompatActivity() {
     lateinit var cvcontact:CardView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_contact_details)
+        setContentView(R.layout.activity_contact_details2)
 
         var name=intent.getStringExtra("name")
         var phoneNumber=intent.getStringExtra("phone")
