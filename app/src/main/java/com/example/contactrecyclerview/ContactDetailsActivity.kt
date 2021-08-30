@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.cardview.widget.CardView
-import com.example.contactrecyclerview.R
 import com.squareup.picasso.Picasso
 
 class ContactDetailsActivity : AppCompatActivity() {
