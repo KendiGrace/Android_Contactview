@@ -9,7 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.contactsapp.ContactDetailsActivity
+import com.example.contactrecyclerview.ContactDetailsActivity
+import com.example.contactrecyclerview.R
 import com.squareup.picasso.Picasso
 
 class ContactRVAdapter ( var contactsList:List<Contact>,var context: Context):RecyclerView.Adapter <ContactsViewHolder>(){
@@ -25,15 +26,15 @@ class ContactRVAdapter ( var contactsList:List<Contact>,var context: Context):Re
         holder.tvemail.text=currentContact.email
         holder.cvcontact.setOnClickListener {
             var intent=Intent(context,ContactDetailsActivity::class.java)
-            intent.putExtra("name",contactsList.name)
-            intent.putExtra("phone",contactsList.phoneNumber)
-            intent.putExtra("email",contactsList.email)
-            intent.putExtra("image",contactsList.imageUrl)
+            intent.putExtra("name",currentContact.name)
+            intent.putExtra("phone",currentContact.phoneNumber)
+            intent.putExtra("email",currentContact.email)
+            intent.putExtra("image",currentContact.imageUrl)
             context.startActivity(intent)
 
 
         }
-        Picasso.get().load(contactsList.imageurl).resize(80,80).centerCrop().into(holder.ivcontact)
+        Picasso.get().load(currentContact.imageUrl).resize(80,80).centerCrop().into(holder.ivcontact)
     }
 
     override fun getItemCount(): Int {
@@ -41,7 +42,7 @@ class ContactRVAdapter ( var contactsList:List<Contact>,var context: Context):Re
     }
 }
 class ContactsViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
-    var name=itemView.findViewById<TextView>(R.id.tvname)
+    var tvname=itemView.findViewById<TextView>(R.id.tvname)
     var tvphone=itemView.findViewById<TextView>(R.id.tvphone)
     var tvemail=itemView.findViewById<TextView>(R.id.tvemail)
     var ivcontact=itemView.findViewById<ImageView>(R.id.ivcontact)

@@ -1,11 +1,9 @@
-package com.example.contactsapp
+package com.example.contactrecyclerview
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.contactrecyclerview.Contact
-import com.example.contactrecyclerview.ContactRVAdapter
-import com.example.contactrecyclerview.R
 
 class MainActivity : AppCompatActivity() {
     lateinit var rvcontacts:RecyclerView
