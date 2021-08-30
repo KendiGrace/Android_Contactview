@@ -25,7 +25,7 @@ class ContactRVAdapter ( var contactsList:List<Contact>,var context: Context):Re
         holder.tvemail.text=currentContact.email
         holder.cvcontact.setOnClickListener {
             var intent=Intent(context,ContactDetailsActivity::class.java)
-            intent.putExtra("name",contactsList.)
+            intent.putExtra("name",contactsList.name)
             intent.putExtra("phone",contactsList.phoneNumber)
             intent.putExtra("email",contactsList.email)
             intent.putExtra("image",contactsList.imageUrl)
@@ -41,7 +41,7 @@ class ContactRVAdapter ( var contactsList:List<Contact>,var context: Context):Re
     }
 }
 class ContactsViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
-    var tvname=itemView.findViewById<TextView>(R.id.tvname)
+    var name=itemView.findViewById<TextView>(R.id.tvname)
     var tvphone=itemView.findViewById<TextView>(R.id.tvphone)
     var tvemail=itemView.findViewById<TextView>(R.id.tvemail)
     var ivcontact=itemView.findViewById<ImageView>(R.id.ivcontact)
