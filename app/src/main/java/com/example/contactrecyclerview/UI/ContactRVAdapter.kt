@@ -9,11 +9,11 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.contactrecyclerview.ContactDetailsActivity
-import com.example.contactrecyclerview.R
+import com.example.contactrecyclerview.Models.Contact
+import com.example.contactrecyclerview.UI.ContactDetailsActivity
 import com.squareup.picasso.Picasso
 
-class ContactRVAdapter ( var contactsList:List<Contact>,var context: Context):RecyclerView.Adapter <ContactsViewHolder>(){
+class ContactRVAdapter (var contactsList:List<Contact>, var context: Context):RecyclerView.Adapter <ContactsViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsViewHolder {
       val itemView=LayoutInflater.from(parent.context).inflate(R.layout.contact_list,parent,false)
         return ContactsViewHolder(itemView)
@@ -21,20 +21,22 @@ class ContactRVAdapter ( var contactsList:List<Contact>,var context: Context):Re
 
     override fun onBindViewHolder(holder: ContactsViewHolder, position: Int) {
         var currentContact=contactsList.get(position)
-        holder.tvname.text=currentContact.name
-        holder.tvphone.text=currentContact.phoneNumber
-        holder.tvemail.text=currentContact.email
-        holder.cvcontact.setOnClickListener {
-            var intent=Intent(context,ContactDetailsActivity::class.java)
-            intent.putExtra("name",currentContact.name)
-            intent.putExtra("phone",currentContact.phoneNumber)
-            intent.putExtra("email",currentContact.email)
-            intent.putExtra("image",currentContact.imageUrl)
-            context.startActivity(intent)
+        val intent=  Intent(context,ContactDetailsActivity::class.java)
+        context.startActivity(intent)
+//        holder.tvname.text=currentContact.name
+//        holder.tvphone.text=currentContact.phoneNumber
+//        holder.tvemail.text=currentContact.email
+//        holder.cvcontact.setOnClickListener {
+//            var intent=Intent(context, ContactDetailsActivity::class.java)
+//            intent.putExtra("name",currentContact.name)
+//            intent.putExtra("phone",currentContact.phoneNumber)
+//            intent.putExtra("email",currentContact.email)
+//            intent.putExtra("image",currentContact.imageUrl)
 
 
-        }
-        Picasso.get().load(currentContact.imageUrl).resize(80,80).centerCrop().into(holder.ivcontact)
+
+//        }
+//        Picasso.get().load(currentContact.imageUrl).resize(80,80).centerCrop().into(holder.ivcontact)
     }
 
     override fun getItemCount(): Int {

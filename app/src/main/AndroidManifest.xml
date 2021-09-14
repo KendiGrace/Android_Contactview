@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.contactrecyclerview">
 
-    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission xmlns:tools="http://schemas.android.com/tools"
+        android:name="android.permission.INTERNET"
+        tools:ignore="WrongManifestParent" />
 
     <application
+        android:name=".DataBase.ContactsApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true">
         <activity
-            android:name="com.example.contactrecyclerview.ContactDetailsActivity" />
-        <activity android:name="com.example.contactrecyclerview.MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:name=".UI.AddContactActivity"
+            android:exported="true" />
+        <activity android:name=".UI.ContactDetailsActivity" />
+
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
     </application>
+
 </manifest>
