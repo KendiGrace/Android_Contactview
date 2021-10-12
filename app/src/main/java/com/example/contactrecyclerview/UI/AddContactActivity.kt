@@ -7,7 +7,9 @@ import com.example.contactrecyclerview.Models.Contact
 import com.example.contactrecyclerview.R
 import com.example.contactrecyclerview.ViewModel.ContactsViewModel
 import com.example.contactrecyclerview.databinding.ActivityAddContactBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class AddContactActivity : AppCompatActivity() {
     val contactsViewModel:ContactsViewModel by viewModels()
     lateinit var binding: ActivityAddContactBinding

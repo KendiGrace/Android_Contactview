@@ -5,10 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.contactrecyclerview.Models.Contact
 import com.example.contactrecyclerview.Repository.ContactsRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ContactsViewModel():ViewModel(){
-    val contactsRepository=ContactsRepository()
+@HiltViewModel
+class ContactsViewModel @Inject constructor(val contactsRepository: ContactsRepository):ViewModel(){
     lateinit var contactLiveData:LiveData<Contact>
     lateinit var contactsLiveData:LiveData<List<Contact>>
 
@@ -21,12 +23,10 @@ class ContactsViewModel():ViewModel(){
         contactsLiveData=contactsRepository.getAllContacts()
     }
     fun getContactsById(contactId:Int){
-        contactLiveData=contactsRepository.getContactsById(contactId)
+        contactLiveData=contactsRepository.getContactById(contactId)
     }
 
 
-
-
-
     }
+
 

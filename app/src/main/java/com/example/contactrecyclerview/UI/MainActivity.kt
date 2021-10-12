@@ -1,15 +1,17 @@
 package com.example.contactrecyclerview.UI
+import ContactsRecyclerViewAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.contactrecyclerview.Models.Contact
-import com.example.contactrecyclerview.ContactRVAdapter
 import com.example.contactrecyclerview.R
 import com.example.contactrecyclerview.ViewModel.ContactsViewModel
 import com.example.contactrecyclerview.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     lateinit var binding:ActivityMainBinding
     lateinit var rvcontacts:RecyclerView
@@ -19,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         contactViewModel.getAllContacts()
-        contactViewModel.getContactsById(contactId = 1)
     }
 
     override fun onResume() {
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     fun displayContacts(contactsList:List<Contact>){
 
         rvcontacts=findViewById(R.id.rvContacts)
-        var contactsAdapter= ContactRVAdapter(contactsList,baseContext)
+        var contactsAdapter= ContactsRecyclerViewAdapter(contactsList,baseContext)
         rvcontacts.apply {
             layoutManager=LinearLayoutManager(baseContext)
             rvcontacts.adapter=contactsAdapter

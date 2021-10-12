@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/layout/activity_contact_view.xml" value="0.1398148148148148" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="app/src/main/res/layout/contact_list.xml" value="0.5" />
+        <entry key="app/src/main/res/xml/file_provider.xml" value="0.1" />
       </map>
     </option>
   </component>

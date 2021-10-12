@@ -6,6 +6,7 @@
     <uses-permission xmlns:tools="http://schemas.android.com/tools"
         android:name="android.permission.INTERNET"
         tools:ignore="WrongManifestParent" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".DataBase.ContactsApp"
@@ -24,6 +25,15 @@
 
             <category android:name="android.intent.category.LAUNCHER" />
         </intent-filter>
+        
+        <provider
+            android:authorities="${applicationId}.provider"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_provider"/>
+        </provider>
     </application>
 
 </manifest>
